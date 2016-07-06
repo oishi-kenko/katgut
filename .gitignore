@@ -77,6 +77,15 @@ build/
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 
+# for dummy rails app
+/spec/dummy/log
+/spec/dummy/tmp
+/spec/dummy/db/*.sqlite3
+/spec/dummy/db/*.sqlite3-journal
+/spec/dummy/public/system
+/spec/dummy/coverage/
+
+
 
 ### https://raw.github.com/github/gitignore/3aab1a12c33e89bb16dbb003dc329ecac7b74ae0/rails.gitignore
 
@@ -115,5 +124,3 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
-
-
