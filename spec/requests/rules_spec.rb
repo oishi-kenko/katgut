@@ -29,6 +29,13 @@ module Toritsugi
           expect(response).to redirect_to("http://#{rule.destination}")
         end
       end
+
+      context "the source url is not found" do
+        it "redirects to the fall back path" do
+          get "/toritsugi/not-existing-source-keyword"
+          expect(response).to redirect_to(Toritsugi.config.fall_back_path)
+        end
+      end
     end
   end
 end

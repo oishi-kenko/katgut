@@ -4,7 +4,7 @@ module Toritsugi
       @rule = Rule.find_by!(source: params[:id])
       redirect_to @rule.regular_destination
     rescue => e
-      render text: "404"
+      redirect_to Toritsugi.config.fall_back_path
     ensure
       after_redirection_callback
     end
