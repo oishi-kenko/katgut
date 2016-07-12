@@ -20,8 +20,6 @@ module Toritsugi
         destination
       else
         case destination
-        when /\A(#{self.class.allowed_schemes_with_suffix.join('|')})/
-          destination
         when /\A\//
           destination
         else

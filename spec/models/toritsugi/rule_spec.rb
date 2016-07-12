@@ -38,4 +38,30 @@ RSpec.describe Toritsugi::Rule, type: :model do
       expect(rule).not_to be_valid
     end
   end
+
+  describe "#regular_destination" do
+    context 'the destination url has a scheme specification' do
+      let(:rule) { build(:rule, destination: "https://httpbin.org/") }
+
+      it 'returns the destination as is' do
+        expect(rule.regular_destination).to eq "https://httpbin.org/"
+      end
+    end
+
+    context 'the destination url begins with slash' do
+      let(:rule) { build(:rule, destination: "/toritsugi_success.html") }
+
+      it 'returns the destination as is' do
+        expect(rule.regular_destination).to eq "/toritsugi_success.html"
+      end
+    end
+
+    context 'the destination begins with number/alphabet character' do
+      let(:rule) { build(:rule, destination: "httpbin.org/") }
+
+      it 'assumes the scheme is http' do
+        expect(rule.regular_destination).to eq "http://httpbin.org/"
+      end
+    end
+  end
 end
