@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :rule, class: Toritsugi::Rule do
-    source      'test'
+    sequence(:source) {|n| "torsitsugi_test_#{n}" }
     destination 'https://www.google.com/'
     active      true
   end
