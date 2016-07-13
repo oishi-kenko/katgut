@@ -8,13 +8,13 @@ Gem::Specification.new do |s|
   s.name        = "toritsugi"
   s.version     = Toritsugi::VERSION
   s.authors     = ["HAMADA Kazuki"]
-  s.email       = ["kazuki-hamada@cookpad.com"]
+  s.email       = ["hamada.kazuki.mum@gmail.com"]
   s.homepage    = "https://kenko.cookpad.com/"
-  s.summary     = "A rails plugin to transfer incomming request to apropriate URL."
+  s.summary     = "A rails plugin to transfer incomming request to another URL."
   s.description = "Yet another reredirector"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib,public}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib,public}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 4.2.6"
