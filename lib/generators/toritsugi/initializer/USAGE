@@ -1,0 +1,9 @@
+Description:
+    Generates a boilerplate of config file for Toritsugi.
+    You can modify the generated file to change the behaviour of the engine.
+
+Example:
+    rails generate toritsugi:initializer
+
+    This will create:
+        config/initializers/toritsugi.rb
