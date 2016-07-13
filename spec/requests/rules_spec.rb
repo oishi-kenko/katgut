@@ -36,6 +36,15 @@ module Toritsugi
           expect(response).to redirect_to(Toritsugi.config.fall_back_path)
         end
       end
+
+      context "appropriate rule exists, but not activated" do
+        let!(:rule) { create(:rule, destination: "https://httpbin.org/", active: false) }
+
+        it "redirects to the fall back path" do
+          get "/toritsugi/#{rule.source}"
+          expect(response).to redirect_to(Toritsugi.config.fall_back_path)
+        end
+      end
     end
   end
 end

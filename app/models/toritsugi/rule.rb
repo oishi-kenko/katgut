@@ -4,6 +4,8 @@ module Toritsugi
     DEFAULT_SCHEME        = :http
     MINIMUM_SOURCE_LENGTH = 5
 
+    scope :active, -> { where(active: true) }
+
     validates :source,
       uniqueness: true,
       presence:   true,

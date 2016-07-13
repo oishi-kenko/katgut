@@ -1,7 +1,7 @@
 module Toritsugi
   class RulesController < ApplicationController
     def show
-      @rule = Rule.find_by!(source: params[:id])
+      @rule = Rule.active.find_by!(source: params[:id])
       redirect_to @rule.regular_destination
     rescue => e
       redirect_to Toritsugi.config.fall_back_path
