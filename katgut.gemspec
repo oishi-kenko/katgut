@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Katgut::VERSION
   s.authors     = ["HAMADA Kazuki"]
   s.email       = ["hamada.kazuki.mum@gmail.com"]
-  s.homepage    = "https://kenko.cookpad.com/"
+  s.homepage    = "https://github.com/oishi-kenko/katgut"
   s.summary     = "A rails plugin to transfer incomming request to another URL."
-  s.description = "Yet another reredirector"
+  s.description = "It Sutures a URL onto another with a redirection path"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib,public}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
