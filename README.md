@@ -85,17 +85,18 @@ $ rails g katgut:initializer
 ```
 
 ### Fallback path
-You can set the fallback path to redirect to in case the given source url is not found on the rules table.
+You can set a alternative destination url for the case the given source url does not exist.
 
 ```ruby
 Katgut.configure do |config|
-  config.fall_back_path = '/sorry.html'  # default: '/'
+  config.fall_back_path = '/not_found.html'  # default: '/'
 end
 ```
 
-### Insert custom logic on redirection
-You can insert custom behaviour by setting a block as a `after_redirection_callback`.
-The block will be called after each redirection with `request`, `parameters` and `rule`. The rule will be `nil` when the appropriate rule is not found.
+### Custom codes after redirection
+You can define a custom block that will be called after every redirection.
+The block should have 3 argumets: `request`, `parameters` and `rule`.
+The `rule` will be `nil` when the specified source url on the request was not valid.
 
 ```ruby
 Katgut.configure do |config|
