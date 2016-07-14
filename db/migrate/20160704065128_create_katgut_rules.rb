@@ -1,6 +1,6 @@
-class CreateToritsugiRules < ActiveRecord::Migration
+class CreateKatgutRules < ActiveRecord::Migration
   def change
-    create_table :toritsugi_rules do |t|
+    create_table :katgut_rules do |t|
       t.string :source, null: false
       t.string :destination, null: false
       t.boolean :active, null: false, default: false
@@ -8,6 +8,6 @@ class CreateToritsugiRules < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :toritsugi_rules, :source, unique: true, name: 'idx_toritsugi_source'
+    add_index :katgut_rules, :source, unique: true, name: 'idx_katgut_source'
   end
 end

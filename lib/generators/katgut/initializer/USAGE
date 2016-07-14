@@ -1,0 +1,9 @@
+Description:
+    Generates a boilerplate of config file for Katgut.
+    You can modify the generated file to change the behaviour of the engine.
+
+Example:
+    rails generate katgut:initializer
+
+    This will create:
+        config/initializers/katgut.rb

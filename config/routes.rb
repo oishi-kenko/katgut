@@ -1,3 +1,3 @@
-Toritsugi::Engine.routes.draw do
+Katgut::Engine.routes.draw do
   get '/:id', to: 'rules#show'
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module Toritsugi
+module Katgut
   describe RulesController do
     routes { Engine.routes }
 
@@ -18,7 +18,7 @@ module Toritsugi
 
       context "after redirection callback is set" do
         before do
-          allow(Toritsugi.config).to(
+          allow(Katgut.config).to(
             receive(:after_redirection_callback)
               .and_return(callback)
           )

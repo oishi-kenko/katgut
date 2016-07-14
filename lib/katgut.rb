@@ -1,7 +1,7 @@
-require "toritsugi/engine"
-require "toritsugi/config"
+require "katgut/engine"
+require "katgut/config"
 
-module Toritsugi
+module Katgut
   def self.config
     @config ||= Config.new
   end

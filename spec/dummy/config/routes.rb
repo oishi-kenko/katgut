@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount Toritsugi::Engine => "/toritsugi"
+  mount Katgut::Engine => "/katgut"
 end

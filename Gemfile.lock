@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    toritsugi (0.0.1)
+    katgut (0.0.1)
       rails (~> 4.2.6)
 
 GEM
@@ -134,9 +134,9 @@ PLATFORMS
 DEPENDENCIES
   database_cleaner
   factory_girl_rails
+  katgut!
   rspec-rails
   sqlite3
-  toritsugi!
 
 BUNDLED WITH
    1.12.5

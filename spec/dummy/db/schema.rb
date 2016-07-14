@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160704065128) do
 
-  create_table "toritsugi_rules", force: :cascade do |t|
+  create_table "katgut_rules", force: :cascade do |t|
     t.string   "source",                      null: false
     t.string   "destination",                 null: false
     t.boolean  "active",      default: false, null: false
@@ -21,6 +21,6 @@ ActiveRecord::Schema.define(version: 20160704065128) do
     t.datetime "updated_at",                  null: false
   end
 
-  add_index "toritsugi_rules", ["source"], name: "idx_toritsugi_source", unique: true
+  add_index "katgut_rules", ["source"], name: "idx_katgut_source", unique: true
 
 end

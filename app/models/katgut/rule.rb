@@ -1,4 +1,4 @@
-module Toritsugi
+module Katgut
   class Rule < ActiveRecord::Base
     ALLOWED_SCHEMES       = [:https, :http]
     DEFAULT_SCHEME        = :http

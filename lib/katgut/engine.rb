@@ -1,6 +1,6 @@
-module Toritsugi
+module Katgut
   class Engine < ::Rails::Engine
-    isolate_namespace Toritsugi
+    isolate_namespace Katgut
 
     config.generators do |g|
       g.test_framework :rspec, fixture: false

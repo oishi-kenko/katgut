@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Toritsugi::Rule, type: :model do
+RSpec.describe Katgut::Rule, type: :model do
   describe "validations" do
     let(:rule) { build(:rule) }
 
@@ -49,10 +49,10 @@ RSpec.describe Toritsugi::Rule, type: :model do
     end
 
     context 'the destination url begins with slash' do
-      let(:rule) { build(:rule, destination: "/toritsugi_success.html") }
+      let(:rule) { build(:rule, destination: "/katgut_success.html") }
 
       it 'returns the destination as is' do
-        expect(rule.regular_destination).to eq "/toritsugi_success.html"
+        expect(rule.regular_destination).to eq "/katgut_success.html"
       end
     end
 
