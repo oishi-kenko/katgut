@@ -100,8 +100,9 @@ The `rule` will be `nil` when the specified source url on the request was not va
 
 ```ruby
 Katgut.configure do |config|
-  config.after_refirection_callback = do |request, parameters, rule|
+  config.after_refirection_callback = proc do |request, parameters, rule|
     # add custom behaviour here, such as logging, overwriting the rule, etc...
+    # this block will be called in the context of Katgut::RulesController.
   end
 end
 ```
