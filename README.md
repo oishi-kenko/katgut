@@ -42,21 +42,10 @@ end
 ## Defining the redirection rules
 The redirection rules will be stored in `katgut_rules` table. A rule is a set of following parameters:
 
-Example:
-
-```ruby
-# Define a rule...
-Katgut::Rule.new(source: "go-to-google", destination: "https://www.google.co.jp/").save
-
-# ... to create this redirection
-# GET /katgut/go-to-google => GET https://www.google.co.jp/
-```
-
-You can set these 3 attributes to each redirection rule.
-
 * source
 * destination
 * active
+
 
 ### `source`
 Set a unique key to determine which rule should be used to redirect the request.
@@ -75,6 +64,16 @@ Set the desination url.
 
 ### `active`
 Set `false` to ignore the rule.
+
+## Example
+
+```ruby
+# Define a rule...
+Katgut::Rule.new(source: "go-to-google", destination: "https://www.google.co.jp/").save
+
+# ... to create this redirection
+# GET /katgut/go-to-google => GET https://www.google.co.jp/
+```
 
 ## Customization
 You can customize the behavour of the gem through the initializer script.
