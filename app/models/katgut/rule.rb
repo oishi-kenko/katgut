@@ -16,6 +16,11 @@ module Katgut
       format:   { without: URI::UNSAFE },
       length:   { maximum: 255 }
     validate :ensure_destination_has_no_unallowed_scheme
+    validates :redirection_count,
+      numericality: {
+        greater_than_or_equal_to: 0,
+        only_integer: true,
+      }
 
     def regular_destination
       if URI.extract(destination).present?
