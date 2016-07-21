@@ -45,6 +45,42 @@ module Katgut
           expect(response).to redirect_to(Katgut.config.fall_back_path)
         end
       end
+
+      context "when the enable_redirection_count is true" do
+        let!(:rule) { create(:rule, destination: "https://httpbin.org/") }
+
+        before {
+          allow(Katgut.config).to(
+            receive(:enable_redirection_count).and_return(true)
+          )
+        }
+
+        it "increments the rule\'s redirection count after the redirection" do
+          expect {
+            get "/katgut/#{rule.source}"
+          }.to change {
+            rule.reload.redirection_count
+          }.from(0).to(1)
+        end
+      end
+
+      context "when the enable_redirection_count is false" do
+        let!(:rule) { create(:rule, destination: "https://httpbin.org/") }
+
+        before {
+          allow(Katgut.config).to(
+            receive(:enable_redirection_count).and_return(false)
+          )
+        }
+
+        it "increments the rule\'s redirection count after the redirection" do
+          expect {
+            get "/katgut/#{rule.source}"
+          }.not_to change {
+            rule.reload.redirection_count
+          }.from(0)
+        end
+      end
     end
   end
 end
