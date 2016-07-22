@@ -105,3 +105,14 @@ Katgut.configure do |config|
   end
 end
 ```
+
+### Redirection counter
+Katgut can count the number of redirection occured for each rules.
+The number will be stored `redirection_count` column of the `katgut_rules` table.
+This feature is convenient in the case you want to use the rules to generate promotion urls.
+
+```ruby
+Katgut.configure do |config|
+  config.enable_redirection_count = true  # default: false
+end
+```
