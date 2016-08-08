@@ -50,6 +50,7 @@ The redirection rules will be stored in `katgut_rules` table. A rule is a set of
 ### `source`
 Set a unique key to determine which rule should be used to redirect the request.
 Only word characters and hyphens\(`[^a-zA-Z0-9_\-]`) are allowed and at least 5 characters needed.
+If you don't give any value for the `source` attribute, katgut generates a random value automatically.
 
 ```
 /mount_point/:source

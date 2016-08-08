@@ -1,3 +1,5 @@
+require 'securerandom'
+
 module Katgut
   class Rule < ActiveRecord::Base
     ALLOWED_SCHEMES       = [:https, :http]
@@ -16,6 +18,8 @@ module Katgut
       format:   { without: URI::UNSAFE },
       length:   { maximum: 255 }
     validate :ensure_destination_has_no_unallowed_scheme
+
+    after_initialize :set_random_source, if: -> { new_record? && source.nil? }
 
     def regular_destination
       if URI.extract(destination).present?
@@ -52,6 +56,10 @@ module Katgut
       if self.class.unallowed_scheme_in?(destination)
         errors.add(:destination, "has unallowed scheme.")
       end
+    end
+
+    def set_random_source
+      self.source = SecureRandom.urlsafe_base64(6)
     end
   end
 end
