@@ -64,4 +64,34 @@ RSpec.describe Katgut::Rule, type: :model do
       end
     end
   end
+
+  describe '#set_random_source' do
+    context 'the model is new and inialized without source url' do
+      let(:rule) { Katgut::Rule.new }
+
+      it 'generates a random source url automatically' do
+        expect(rule.source).not_to eq nil
+      end
+
+      it 'generates at least 6 character length or longer url' do
+        expect(rule.source.length).to be >= 6
+      end
+    end
+
+    context 'the model is new and initialized with a source url' do
+      let(:rule) { build(:rule, source: "osusume") }
+
+      it 'keeps the given source and do nothing' do
+        expect(rule.source).to eq "osusume"
+      end
+    end
+
+    context 'the model is persisted and initialized from db' do
+      before { create(:rule, source: "osusume") }
+
+      it 'keeps the given source and do nothing' do
+        expect(Katgut::Rule.last.source).to eq "osusume"
+      end
+    end
+  end
 end
