@@ -84,7 +84,7 @@ Suppose the engine is mounted to your app in this way:
 ```ruby
 # config/routes.rb
 Rails.application.routes.draw do
-  mount Katgut::Engine => "/katgut"
+  mount Katgut::Engine => "/katgut", as: 'katgut'
 end
 ```
 
