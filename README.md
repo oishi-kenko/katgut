@@ -76,6 +76,35 @@ Katgut::Rule.new(source: "go-to-google", destination: "https://www.google.co.jp/
 # GET /katgut/go-to-google => GET https://www.google.co.jp/
 ```
 
+## URL helpers
+Katgut defines url helpers to generate redirection urls.
+
+Suppose the engine is mounted to your app in this way:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  mount Katgut::Engine => "/katgut"
+end
+```
+
+Then you can access predefined url helpers like this:
+
+```ruby
+# app/controllers/xxxx_controller.rb
+
+katgut.rule_path("source_string")  # => "/katgut/source_string"
+```
+
+You can see all the predefined helpers in `Routes for Katgut::Engine` section in the list that `rake routes` generates.
+
+```bash
+$ rake routes | grep --ignore-case katgut
+
+Routes for Katgut::Engine:
+  rule GET  /:id(.:format) katgut/rules#show
+```
+
 ## Customization
 You can customize the behavour of the gem through the initializer script.
 
