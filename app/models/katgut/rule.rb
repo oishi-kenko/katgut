@@ -18,6 +18,11 @@ module Katgut
       format:   { without: URI::UNSAFE },
       length:   { maximum: 255 }
     validate :ensure_destination_has_no_unallowed_scheme
+    validates :redirection_count,
+      numericality: {
+        greater_than_or_equal_to: 0,
+        only_integer: true,
+      }
 
     after_initialize :set_random_source, if: -> { new_record? && source.nil? }
 
