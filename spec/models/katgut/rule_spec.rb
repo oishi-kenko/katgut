@@ -28,7 +28,7 @@ RSpec.describe Katgut::Rule, type: :model do
       expect(rule).not_to be_valid
     end
 
-    it 'doesn\'t allow unsafe characters in destination col' do
+    it 'doesn\'t allow invalid characters in destination col' do
       rule.destination = '/test/<>'
       expect(rule).not_to be_valid
     end

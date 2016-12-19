@@ -16,8 +16,8 @@ module Katgut
       length:     { in: MINIMUM_SOURCE_LENGTH .. 255 }
     validates :destination,
       presence: true,
-      format:   { without: URI::UNSAFE },
       length:   { maximum: MAXIMUM_DESTINATION_LENGTH }
+    validate :ensure_destination_is_full_url_or_path
     validate :ensure_destination_has_no_unallowed_scheme
 
     after_initialize :set_random_source, if: -> { new_record? && source.nil? }
@@ -56,6 +56,16 @@ module Katgut
     def ensure_destination_has_no_unallowed_scheme
       if self.class.unallowed_scheme_in?(destination)
         errors.add(:destination, "has unallowed scheme.")
+      end
+    end
+
+    def ensure_destination_is_full_url_or_path
+      if destination =~ /\A#{URI::regexp}\z/
+        true
+      elsif "#{ALLOWED_SCHEMES.first}://example.com#{destination}" =~ /\A#{URI::regexp}\z/
+        true
+      else
+        errors.add(:destination, "is neither in full URL format nor path format")
       end
     end
 
