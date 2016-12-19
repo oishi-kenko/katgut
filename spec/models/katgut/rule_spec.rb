@@ -28,13 +28,18 @@ RSpec.describe Katgut::Rule, type: :model do
       expect(rule).not_to be_valid
     end
 
-    it 'doesn\'t allow unsafe characters in destination col' do
+    it 'doesn\'t allow invalid characters in destination col' do
       rule.destination = '/test/<>'
       expect(rule).not_to be_valid
     end
 
     it 'doesn\'t allow destination url in unallowed scheme' do
       rule.destination = 'ftp://ftp.naist.jp'
+      expect(rule).not_to be_valid
+    end
+
+    it 'doesn\'t allow destination url longer than 2083 characters' do
+      rule.destination += 'a' * (2083 - rule.destination.length) + 'X'
       expect(rule).not_to be_valid
     end
   end
