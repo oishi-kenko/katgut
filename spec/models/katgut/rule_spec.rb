@@ -37,6 +37,11 @@ RSpec.describe Katgut::Rule, type: :model do
       rule.destination = 'ftp://ftp.naist.jp'
       expect(rule).not_to be_valid
     end
+
+    it 'doesn\'t allow destination url longer than 2083 characters' do
+      rule.destination += 'a' * (2083 - rule.destination.length) + 'X'
+      expect(rule).not_to be_valid
+    end
   end
 
   describe "#regular_destination" do

@@ -2,9 +2,10 @@ require 'securerandom'
 
 module Katgut
   class Rule < ActiveRecord::Base
-    ALLOWED_SCHEMES       = [:https, :http]
-    DEFAULT_SCHEME        = :http
-    MINIMUM_SOURCE_LENGTH = 5
+    ALLOWED_SCHEMES            = [:https, :http]
+    DEFAULT_SCHEME             = :http
+    MINIMUM_SOURCE_LENGTH      = 5
+    MAXIMUM_DESTINATION_LENGTH = 2083    # Limitation for IE / Edge
 
     scope :active, -> { where(active: true) }
 
@@ -16,7 +17,7 @@ module Katgut
     validates :destination,
       presence: true,
       format:   { without: URI::UNSAFE },
-      length:   { maximum: 255 }
+      length:   { maximum: MAXIMUM_DESTINATION_LENGTH }
     validate :ensure_destination_has_no_unallowed_scheme
 
     after_initialize :set_random_source, if: -> { new_record? && source.nil? }
