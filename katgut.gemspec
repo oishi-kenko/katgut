@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,public}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.required_ruby_version = '~> 2.3'
+  s.required_ruby_version = '>= 2.3'
 
   s.add_dependency "rails", '>= 4.2.6'
 
