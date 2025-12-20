@@ -1,5 +1,6 @@
-require 'factory_girl_rails'
-require 'database_cleaner'
+require 'rspec/core'
+require 'factory_bot_rails'
+require 'database_cleaner/active_record'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
