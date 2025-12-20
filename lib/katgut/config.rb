@@ -1,11 +1,9 @@
 module Katgut
   class Config
-    include ActiveSupport::Configurable
-    config_accessor :after_redirection_callback, :fall_back_path
+    include ActiveSupport::Callbacks
+    extend ActiveSupport::Concern
 
-    configure do |config|
-      config.after_redirection_callback = nil
-      config.fall_back_path = '/'
-    end
+    class_attribute :after_redirection_callback, default: nil
+    class_attribute :fall_back_path, default: '/'
   end
 end
