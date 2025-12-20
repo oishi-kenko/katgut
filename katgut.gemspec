@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 3.1'
 
-  s.add_dependency "rails", '>= 4.2.6'
+  s.add_dependency "rails", '>= 4.2.6', '< 8'
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
