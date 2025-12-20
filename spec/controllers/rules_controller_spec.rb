@@ -11,7 +11,7 @@ module Katgut
       context "after redirection callback is not set in config" do
         it "doesn't calls the after redirection callback" do
           expect {
-            get :show, id: 'advice'
+            get :show, params: { id: 'advice' }
           }.not_to throw_symbol :called
         end
       end
@@ -26,7 +26,7 @@ module Katgut
 
         it "calls the after redirection callback" do
           expect {
-            get :show, id: 'advice'
+            get :show, params: { id: 'advice' }
           }.to throw_symbol :called
         end
       end
