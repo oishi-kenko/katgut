@@ -1,4 +1,4 @@
-class CreateKatgutRules < ActiveRecord::Migration
+class CreateKatgutRules < ActiveRecord::Migration[4.2]
   def change
     create_table :katgut_rules do |t|
       t.string :source, null: false

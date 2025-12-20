@@ -1,4 +1,4 @@
-class ChangeTypeOfDestinationOnKatgutRulesToText < ActiveRecord::Migration
+class ChangeTypeOfDestinationOnKatgutRulesToText < ActiveRecord::Migration[4.2]
   def self.up
     change_column :katgut_rules, :destination, :text, null: false
   end
