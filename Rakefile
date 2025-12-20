@@ -30,5 +30,16 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = false
 end
 
+begin
+  require 'rspec/core/rake_task'
+  desc 'Run specs'
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.rspec_opts = [
+      '-I', File.expand_path('spec', __dir__),
+      '--pattern', 'spec/{models,controllers,requests}/**/*_spec.rb'
+    ]
+  end
+rescue LoadError
+end
 
-task default: :test
+task default: :spec
