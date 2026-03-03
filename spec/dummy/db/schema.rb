@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301053806) do
-
+ActiveRecord::Schema[8.1].define(version: 2025_12_20_014133) do
   create_table "katgut_rules", force: :cascade do |t|
-    t.string   "source",                      null: false
-    t.text     "destination",                 null: false
-    t.boolean  "active",      default: false, null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean "active", default: false, null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.text "destination", null: false
+    t.string "source", null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["source"], name: "idx_katgut_source", unique: true
   end
-
 end

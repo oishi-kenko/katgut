@@ -6,14 +6,14 @@ The gem provides:
 * After redirection callbacks
 
 # Requirements
-* Ruby 2.3 or later
-* Rails 4.2.6 or later
+* Ruby 3.1 or later
+* Rails 4.2.6 〜 7.x
 
 # Installation
 Add `katgut` to your Gemfile
 
 ```ruby
-gem 'katgut', '~> 0.0.1'
+gem 'katgut', '~> 0.2.0'
 ```
 
 Then install the migration files by running:

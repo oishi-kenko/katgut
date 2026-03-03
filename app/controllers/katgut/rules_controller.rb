@@ -2,7 +2,7 @@ module Katgut
   class RulesController < ApplicationController
     def show
       @rule = Rule.active.find_by!(source: params[:id])
-      redirect_to @rule.regular_destination
+      redirect_to @rule.regular_destination, allow_other_host: true
     rescue => e
       redirect_to Katgut.config.fall_back_path
     ensure
